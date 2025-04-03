@@ -28,9 +28,9 @@ const Footer = () => {
               </p>
               <div className="flex space-x-4">
                 <SocialIcon href="https://twitter.com" icon="twitter" />
-                <SocialIcon href="https://facebook.com" icon="facebook" />
-                <SocialIcon href="https://instagram.com" icon="instagram" />
-                <SocialIcon href="https://linkedin.com" icon="linkedin" />
+                <SocialIcon href="https://www.facebook.com/Ashpulp/" icon="facebook" />
+                <SocialIcon href="https://www.instagram.com/ashpulp/" icon="instagram" />
+                <SocialIcon href="https://www.linkedin.com/company/ashpulp" icon="linkedin" />
               </div>
             </div>
 
@@ -71,10 +71,10 @@ const Footer = () => {
             <div>
               <h4 className="text-lg font-bold mb-4">Services</h4>
               <ul className="space-y-2">
-                <FooterLink href="/services/web-development" label="Web Development" />
-                <FooterLink href="/services/app-development" label="App Development" />
-                <FooterLink href="/services/design" label="UI/UX Design" />
-                <FooterLink href="/services/marketing" label="Digital Marketing" />
+                <FooterLink href="/services" label="Web Development" />
+                <FooterLink href="/services" label="App Development" />
+                <FooterLink href="/services" label="UI/UX Design" />
+                <FooterLink href="/services" label="Digital Marketing" />
               </ul>
             </div>
             <div>
@@ -100,7 +100,7 @@ const Footer = () => {
           {/* Footer Bottom: Copyright and Additional Links */}
           <div className="pt-6 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-400 text-sm mb-4 md:mb-0">
-              © {currentYear} Your Company Name. All rights reserved.
+              © {currentYear} Ashpulp Technologies. All rights reserved.
             </p>
             <div className="flex flex-wrap justify-center gap-4 text-sm text-gray-400">
               <Link href="/privacy" className="hover:text-white transition-colors">

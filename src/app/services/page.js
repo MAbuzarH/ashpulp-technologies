@@ -600,8 +600,14 @@ const containerVariants = {
                 </form>
               
             </div>
-            <div>
-                image
+            <div className='md:ml-3'>
+                <Image 
+                 src="/contactser.jpeg"
+                 width={500}
+                 height={500}
+                 className='pt-5 md:pt-60'
+                 alt="Picture of the author"
+                  />
             </div>
               </div>
           </motion.div>
