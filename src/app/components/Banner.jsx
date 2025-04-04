@@ -9,7 +9,7 @@ const Banner = () => {
         {/* Background Image */}
         <div className="absolute inset-0">
           <Image
-            src="/dots2new.jpeg"
+            src="/glaxy.jpeg"
             alt="Hero Background"
             fill
             priority

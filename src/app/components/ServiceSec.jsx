@@ -8,6 +8,8 @@ const ServicesSection = () => {
   const [expandedService, setExpandedService] = useState(null);
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { once: true, amount: 0.2 });
+  const contentRef = useRef(null);
+  const isContentInView = useInView(contentRef, { once: true, amount: 0.1 });
   
   // Services data structure
   const servicesData = [
@@ -393,64 +395,71 @@ const ServicesSection = () => {
         </motion.div>
       
         {/* Our Approach Section */}
+       <div></div>
         <motion.div 
-          className="mt-20 bg-gray-50 rounded-xl shadow-lg p-8"
-          initial={{ opacity: 0, y: 50 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-          transition={{ duration: 0.8, delay: 0.8 }}
-        >
-          <motion.h3 
-            className="text-2xl font-bold text-center text-gray-800 mb-8"
-            initial={{ opacity: 0 }}
-            animate={isInView ? { opacity: 1 } : { opacity: 0 }}
-            transition={{ duration: 0.6, delay: 1 }}
+            className="mt-20 bg-white rounded-2xl shadow-xl p-8 md:p-12"
+            initial={{ opacity: 0, y: 50 }}
+            animate={isContentInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+            transition={{ duration: 0.8, delay: 0.5 }}
           >
-            Our Approach
-          </motion.h3>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {[
-              {
-                icon: '🔍',
-                title: 'Discovery & Strategy',
-                description: 'Understanding your needs and identifying opportunities with data-driven insights.'
-              },
-              {
-                icon: '✏️',
-                title: 'Design & Development',
-                description: 'Crafting innovative solutions that align with your goals and deliver long-term value.'
-              },
-              {
-                icon: '🚀',
-                title: 'Implementation & Support',
-                description: 'Ensuring smooth deployment and ongoing support to maintain peak performance.'
-              }
-            ].map((step, index) => (
-              <motion.div 
-                key={index}
-                className="text-center"
-                initial={{ opacity: 0, y: 30 }}
-                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-                transition={{ duration: 0.6, delay: 1 + (index * 0.2) }}
-              >
+            <motion.h3 
+              className="text-3xl font-bold text-center text-gray-800 mb-12"
+              initial={{ opacity: 0 }}
+              animate={isContentInView ? { opacity: 1 } : { opacity: 0 }}
+              transition={{ duration: 0.6, delay: 0.7 }}
+              ref={contentRef}
+            >
+              Our Approach
+            </motion.h3>
+            
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {[
+                {
+                  icon: '🔍',
+                  title: 'Discovery & Strategy',
+                  description: 'Understanding your needs and identifying opportunities with data-driven insights.'
+                },
+                {
+                  icon: '✏️',
+                  title: 'Design & Development',
+                  description: 'Crafting innovative solutions that align with your goals and deliver long-term value.'
+                },
+                {
+                  icon: '🚀',
+                  title: 'Implementation & Support',
+                  description: 'Ensuring smooth deployment and ongoing support to maintain peak performance.'
+                }
+              ].map((step, index) => (
                 <motion.div 
-                  className="w-12 h-12 rounded-full bg-white shadow-md flex items-center justify-center text-xl mx-auto mb-4"
+                  key={index}
+                  className="bg-gray-50 rounded-xl p-6 text-center"
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={isContentInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+                  transition={{ duration: 0.6, delay: 0.8 + (index * 0.2) }}
                   whileHover={{ 
-                    scale: 1.1, 
-                    boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1)" 
+                    y: -10,
+                    boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1)",
                   }}
                 >
-                  {step.icon}
+                  <motion.div 
+                    className="w-16 h-16 rounded-full bg-white shadow-md flex items-center justify-center text-2xl mx-auto mb-4"
+                    whileHover={{ 
+                      scale: 1.1, 
+                      rotate: 10,
+                      boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1)" 
+                    }}
+                  >
+                    {step.icon}
+                  </motion.div>
+                  <h4 className="text-xl font-bold text-gray-800 mb-3">{step.title}</h4>
+                  <p className="text-gray-600">{step.description}</p>
                 </motion.div>
-                <h4 className="text-lg font-bold text-gray-800 mb-2">{step.title}</h4>
-                <p className="text-gray-600 text-sm">{step.description}</p>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
+              ))}
+            </div>
+          </motion.div>
         
         {/* CTA Section */}
-        <motion.div 
+        {/* <motion.div 
           className="mt-12 text-center"
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : { opacity: 0 }}
@@ -482,7 +491,7 @@ const ServicesSection = () => {
           >
             Start A Project
           </motion.button>
-        </motion.div>
+        </motion.div> */}
       </div>
     </section>
   );

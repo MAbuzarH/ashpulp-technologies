@@ -35,7 +35,7 @@ export default function AboutPage() {
           <h2 className="text-3xl font-bold text-gray-800 mb-4">Our Mission</h2>
           <div className="w-16 h-1 mx-auto bg-blue-600 mb-6"></div>
           <p className="text-xl text-gray-600">
-            To empower businesses through innovative technology solutions that drive growth and success.
+          To empower businesses and individuals with transformative technology solutions that maximize growth, efficiency, and profitability through the strategic use of AI, data analytics, software/web development, and digital marketing.
           </p>
         </div>
 
@@ -44,7 +44,7 @@ export default function AboutPage() {
           <h2 className="text-3xl font-bold text-gray-800 mb-4">Our Story</h2>
           <div className="w-16 h-1 bg-blue-600 mb-6"></div>
           <p className="text-gray-600 mb-4">
-            Founded in 2015, our company began with a vision to bridge the gap between complex technology and everyday business needs. What started as a small team of passionate developers has grown into a diverse group of professionals dedicated to creating meaningful digital experiences.
+            Founded in 2025, our company began with a vision to bridge the gap between complex technology and everyday business needs. What started as a small team of passionate developers has grown into a diverse group of professionals dedicated to creating meaningful digital experiences.
           </p>
           <p className="text-gray-600 mb-4">
             Through years of innovation and collaboration, we've helped hundreds of businesses transform their digital presence and operational efficiency. Our journey has been marked by continuous learning and adaptation to the ever-evolving technological landscape.

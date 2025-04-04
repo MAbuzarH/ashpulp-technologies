@@ -84,7 +84,7 @@ const Navbar = () => {
           
           {/* Button with black background */}
           <Link href="/signup">
-            <button className="bg-black text-white px-4 py-2 rounded-md hover:bg-gray-800 transition-colors duration-200">
+            <button className="bg-black text-white px-3 py-2 rounded-md hover:bg-gray-800 transition-colors duration-200 font-sans">
               Start A Project
             </button>
           </Link>

@@ -50,7 +50,7 @@ const VideoSection = () => {
   return (
     <section 
       ref={sectionRef} 
-      className="relative w-full overflow-hidden bg-black min-h-screen flex items-center justify-center py-20"
+      className="relative w-full overflow-hidden bg-gray-900 rounded-3xl min-h-screen flex items-center justify-center py-20"
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
     >

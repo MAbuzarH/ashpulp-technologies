@@ -175,7 +175,7 @@ const StatsSection = () => {
   return (
     <section 
       ref={sectionRef} 
-      className="py-20  overflow-hidden relative"
+      className="py-10  overflow-hidden relative"
     >
       {/* Background decorative elements */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
@@ -343,7 +343,7 @@ const StatsSection = () => {
           
           {/* Image column */}
           <motion.div 
-            className="w-full md:w-[45%]"
+            className="w-[400px] md:w-[45%]  mx-auto"
             initial={{ opacity: 0, x: 100 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ 
@@ -361,19 +361,19 @@ const StatsSection = () => {
             >
               {/* Image container with animation effects */}
               <motion.div 
-                className="w-full h-full  "
+                // className=""
                 initial={{ filter: "blur(10px)" }}
                 animate={{ filter: "blur(0px)" }}
                 transition={{ duration: 1.5, delay: 0.8 }}
               >
                 {/* Replace with your actual image path */}
                 <Image 
-                  src="/laptopt.jpg" 
+                  src="/cl1.jpg" 
                   alt="Our achievements illustrated" 
                   width={800} 
                   height={600}
                   priority
-                  className="w-full h-auto object-cover"
+                  className="w-[100%] h-[600px] object-cover mx-auto"
                 />
                 
               </motion.div>

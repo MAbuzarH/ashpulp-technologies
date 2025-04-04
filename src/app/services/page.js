@@ -247,7 +247,7 @@ const containerVariants = {
           opacity: heroOpacity
         }}
       >
-        <div className="w-[95%] mx-auto border-2 border-purple-600 p-9 rounded-2xl">
+        <div className="w-[95%] mx-auto  ">
           <motion.div 
             className="text-center max-w-4xl mx-auto "
             initial={{ opacity: 0, y: 30 }}
@@ -443,67 +443,7 @@ const containerVariants = {
             )}
           </AnimatePresence>
           
-          {/* Our Approach Section */}
-          <motion.div 
-            className="mt-20 bg-white rounded-2xl shadow-xl p-8 md:p-12"
-            initial={{ opacity: 0, y: 50 }}
-            animate={isContentInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
-          >
-            <motion.h3 
-              className="text-3xl font-bold text-center text-gray-800 mb-12"
-              initial={{ opacity: 0 }}
-              animate={isContentInView ? { opacity: 1 } : { opacity: 0 }}
-              transition={{ duration: 0.6, delay: 0.7 }}
-            >
-              Our Approach
-            </motion.h3>
-            
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {[
-                {
-                  icon: '🔍',
-                  title: 'Discovery & Strategy',
-                  description: 'Understanding your needs and identifying opportunities with data-driven insights.'
-                },
-                {
-                  icon: '✏️',
-                  title: 'Design & Development',
-                  description: 'Crafting innovative solutions that align with your goals and deliver long-term value.'
-                },
-                {
-                  icon: '🚀',
-                  title: 'Implementation & Support',
-                  description: 'Ensuring smooth deployment and ongoing support to maintain peak performance.'
-                }
-              ].map((step, index) => (
-                <motion.div 
-                  key={index}
-                  className="bg-gray-50 rounded-xl p-6 text-center"
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={isContentInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-                  transition={{ duration: 0.6, delay: 0.8 + (index * 0.2) }}
-                  whileHover={{ 
-                    y: -10,
-                    boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1)",
-                  }}
-                >
-                  <motion.div 
-                    className="w-16 h-16 rounded-full bg-white shadow-md flex items-center justify-center text-2xl mx-auto mb-4"
-                    whileHover={{ 
-                      scale: 1.1, 
-                      rotate: 10,
-                      boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1)" 
-                    }}
-                  >
-                    {step.icon}
-                  </motion.div>
-                  <h4 className="text-xl font-bold text-gray-800 mb-3">{step.title}</h4>
-                  <p className="text-gray-600">{step.description}</p>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
+         
           
           {/* Contact Form Section */}
           <motion.div 

@@ -350,7 +350,7 @@ export default function ContactPage() {
             </div>
           </motion.div>
           
-          <motion.div 
+          {/* <motion.div 
             className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12"
             initial={{ opacity: 0 }}
             animate={isMapSectionInView ? { opacity: 1 } : { opacity: 0 }}
@@ -409,12 +409,12 @@ export default function ContactPage() {
                 <p className="text-gray-600">Saturday: 10:00 AM - 4:00 PM</p>
               </div>
             </motion.div>
-          </motion.div>
+          </motion.div> */}
         </div>
       </section>
 
        {/* Newsletter and Social CTA */}
-       <section className="py-16 bg-gradient-to-r from-purple-500 via-indigo-500 to-purple-700 text-white">
+       {/* <section className="py-16 bg-gradient-to-r from-purple-500 via-indigo-500 to-purple-700 text-white">
         <div className="w-[95%] mx-auto max-w-6xl">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -492,6 +492,6 @@ export default function ContactPage() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 </div>  
       )}

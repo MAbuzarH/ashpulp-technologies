@@ -1,4 +1,6 @@
 // components/TeamSection.tsx
+"use client"
+import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -16,36 +18,91 @@ const TeamSection = () => {
   const teamMembers = [
     {
       id: 1,
-      name: 'Sarah Johnson',
-      designation: 'CEO & Founder',
-      image: '/team/sarah-johnson.jpg',
-      linkedIn: 'https://linkedin.com/in/sarah-johnson'
+      name: 'Arsalan Khan',
+      designation: 'Chief Executive Officer',
+      image: '/lin2.jpg',
+      linkedIn: '//lin1.jpg'
     },
     {
       id: 2,
-      name: 'Michael Chen',
-      designation: 'Lead Developer',
-      image: '/team/michael-chen.jpg',
+      name: 'Aman Khan',
+      designation: 'Chief Operating Officer',
+      image: '/lin2.jpg',
       linkedIn: 'https://linkedin.com/in/michael-chen'
     },
     {
       id: 3,
-      name: 'Amara Rodriguez',
-      designation: 'UX Designer',
-      image: '/team/amara-rodriguez.jpg',
+      name: 'Bilal Ahmed',
+      designation: 'ML/AI consultant',
+      image: '/lin2.jpg',
       linkedIn: 'https://linkedin.com/in/amara-rodriguez'
     },
     {
       id: 4,
-      name: 'James Wilson',
-      designation: 'Marketing Director',
-      image: '/team/james-wilson.jpg',
+      name: 'Muddassir Khan',
+      designation: 'Chief Technology Officer',
+      image: '/lin2.jpg',
       linkedIn: 'https://linkedin.com/in/james-wilson'
     },
+    {
+      id: 5,
+      name: 'Arif Khan',
+      designation: 'Chief Behavioral Science Officer',
+      image: '/lin2.jpg',
+      linkedIn: 'https://linkedin.com/in/james-wilson'
+    }
   ];
 
+  // State for current slide and screen size
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [slidesToShow, setSlidesToShow] = useState(4);
+
+  // Update slides to show based on window size
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 640) {
+        setSlidesToShow(1); // Mobile: 1 card
+      } else if (window.innerWidth < 1024) {
+        setSlidesToShow(2); // Tablet: 2 cards
+      } else {
+        setSlidesToShow(4); // Desktop: 4 cards
+      }
+    };
+
+    // Set initial value
+    handleResize();
+
+    // Add event listener
+    window.addEventListener('resize', handleResize);
+
+    // Clean up
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  // Calculate total slides
+  const totalSlides = teamMembers.length;
+  const maxIndex = totalSlides - slidesToShow;
+
+  // Navigation functions
+  const nextSlide = () => {
+    setCurrentIndex(prev => (prev >= maxIndex ? 0 : prev + 1));
+  };
+
+  const prevSlide = () => {
+    setCurrentIndex(prev => (prev <= 0 ? maxIndex : prev - 1));
+  };
+
+  // Auto-play (optional)
+  useEffect(() => {
+    const interval = setInterval(() => {
+      nextSlide();
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [currentIndex, maxIndex]);
+
   return (
-    <section className="py-16 ">
+    <section className="py-16">
       <div className="container mx-auto px-4">
         {/* Section Header */}
         <div className="text-center mb-12">
@@ -56,11 +113,75 @@ const TeamSection = () => {
           </p>
         </div>
 
-        {/* Team Members Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          {teamMembers.map((member) => (
-            <TeamMemberCard key={member.id} member={member} />
-          ))}
+        {/* Carousel Container */}
+        <div className="relative">
+          {/* Carousel Track */}
+          <div className="overflow-hidden">
+            <div 
+              className="flex transition-transform duration-500 ease-in-out"
+              style={{ 
+                transform: `translateX(-${currentIndex * (100 / slidesToShow)}%)`,
+                width: `${(totalSlides / slidesToShow) * 100}%`
+              }}
+            >
+              {teamMembers.map((member) => (
+                <div 
+                  key={member.id} 
+                  className="px-2"
+                  style={{ width: `${100 / totalSlides}%` }}
+                >
+                  <TeamMemberCard member={member} />
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Navigation Arrows */}
+          <button 
+            onClick={prevSlide}
+            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 bg-white p-2 rounded-full shadow-md z-10 hover:bg-gray-100"
+            aria-label="Previous slide"
+          >
+            <svg 
+              xmlns="http://www.w3.org/2000/svg" 
+              className="h-6 w-6 text-gray-700" 
+              fill="none" 
+              viewBox="0 0 24 24" 
+              stroke="currentColor"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+            </svg>
+          </button>
+          
+          <button 
+            onClick={nextSlide}
+            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 bg-white p-2 rounded-full shadow-md z-10 hover:bg-gray-100"
+            aria-label="Next slide"
+          >
+            <svg 
+              xmlns="http://www.w3.org/2000/svg" 
+              className="h-6 w-6 text-gray-700" 
+              fill="none" 
+              viewBox="0 0 24 24" 
+              stroke="currentColor"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
+
+          {/* Dots Navigation (Optional) */}
+          <div className="flex justify-center mt-6">
+            {Array.from({ length: maxIndex + 1 }).map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentIndex(index)}
+                className={`h-2 w-2 mx-1 rounded-full ${
+                  currentIndex === index ? 'bg-blue-600' : 'bg-gray-300'
+                }`}
+                aria-label={`Go to slide ${index + 1}`}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </section>
@@ -74,7 +195,7 @@ const TeamSection = () => {
 
 const TeamMemberCard = ({ member }) => {
   return (
-    <div className="bg-white rounded-lg overflow-hidden shadow-md transition-transform duration-300 hover:shadow-lg hover:-translate-y-2">
+    <div className="bg-white rounded-lg overflow-hidden shadow-md transition-transform duration-300 hover:shadow-lg hover:-translate-y-2 h-full">
       {/* Team Member Image */}
       <div className="relative h-80 w-full">
         <Image

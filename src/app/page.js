@@ -7,18 +7,22 @@ import ContactSection from './components/Contactm'
 import StatsSection from './components/StatsSec'
 import  VideoSection from   './components/Vidsec'
 import ServicesSection from './components/ServiceSec'
+import TechHeroSection from './components/TechHero'
+import FeaturedVideoSection from './components/Fetved'
 
 const page = () => {
   return (
     <div>
       <HeroSection/>
+       {/* <TechHeroSection/> */}
       <StatsSection/>
-      <VideoSection/>
+      {/* <VideoSection/> */}
+      {/* <FeaturedVideoSection/> */}
       <ServicesSection />
       <TeamSection />
       <Banner />
       <ProjectsSection />
-      <ContactSection />
+      {/* <ContactSection /> */}
     </div>
   )
 }
